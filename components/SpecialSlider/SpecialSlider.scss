@@ -1,0 +1,6 @@
+input[type="range"] {
+  &:active {
+    cursor: pointer;
+  }
+  accent-color: var(--purple);
+}

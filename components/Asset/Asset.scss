@@ -1,0 +1,85 @@
+.asset {
+  background-color: rgba(1, 1, 1, 0.3);
+  box-shadow: 0 0 30px rgba(1, 1, 1, 0.5);
+  border-radius: 12px;
+  padding: 25px 25px;
+
+  margin-bottom: 1.5rem;
+  .assetTitleSpan {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-bottom: 1rem;
+    img {
+      width: 25px;
+      height: 25px;
+      margin-right: 0.5rem;
+    }
+    h3 {
+      color: var(--gold);
+      font-size: 1.27rem;
+      margin-right: 0.5rem;
+    }
+    span {
+      font-size: 0.95rem;
+      position: relative;
+      top: 2px;
+    }
+  }
+
+  p {
+    color: white;
+    font-size: 0.93rem;
+    margin-bottom: 2.2rem;
+  }
+  .assetPrices {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 0.6rem;
+    font-size: 1.12rem;
+    .actualPrice {
+    }
+    .estimatePrice {
+    }
+  }
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    input[type="range"] {
+      width: 90%;
+      margin-bottom: 2rem;
+    }
+    button {
+      font-size: 0.95rem;
+      margin-bottom: 0.6rem;
+    }
+  }
+}
+
+//   form {
+//     .inputs {
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//       border: 2px solid red;
+//       .inputSpan {
+//         border: 2px solid blue;
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+
+//         label {
+//           color: white;
+//           //   margin-right: 0.5rem;
+//         }
+//         input {
+//           height: 30px;
+//           width: 100px;
+//         }
+//       }
+//     }
+//   }
