@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "./SpecialSlider.scss";
 
-const SpecialSlider = ({ sliderValue, setSliderValue }) => {
+const SpecialSlider = ({ sliderValue, setSliderValue, className }) => {
   useEffect(() => {
   }, [sliderValue]);
 
@@ -11,7 +10,7 @@ const SpecialSlider = ({ sliderValue, setSliderValue }) => {
 
   return (
     <input
-      className="specialSlider"
+      className={className}
       type="range"
       value={sliderValue}
       onChange={handleSliderChange}

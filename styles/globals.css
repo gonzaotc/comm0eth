@@ -47,6 +47,12 @@ body,
   border-radius: 6px;
   cursor: pointer;
   background-image: linear-gradient(to right, #f09819 0%, #edde5d 51%, #f09819 100%);
+  backdrop-filter: blur(4px);
+  &:hover {
+    color: #fff;
+    background-position: right center; /* change the direction of the change here */
+    box-shadow: 1px 1px 10px rgb(255, 215, 0, 0.27);
+  }
   &--purple {
     background-image: linear-gradient(to right, #5c258d 0%, #4389a2 51%, #5c258d 100%);
   }
@@ -57,8 +63,14 @@ body,
   }
 }
 
-.specialBtn:hover {
-  color: #fff;
-  background-position: right center; /* change the direction of the change here */
-  box-shadow: 1px 1px 10px rgb(255, 215, 0, 0.25);
+.spacer{
+  aspect-ratio: 1920/1080;
+  /* width: 100%; */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.layer1{
+  background-image: url('../images/blurry-gradient-haikei.png');
 }

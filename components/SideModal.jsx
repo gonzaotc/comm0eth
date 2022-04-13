@@ -1,20 +1,40 @@
+import { signOut } from "firebase/auth";
 import React from "react";
 import { useSelector } from "react-redux";
+import { IconClose, IconLogout } from "../Assets/icons/icons";
+import { auth } from "../firebase";
 import { selectUser } from "../store/userSlice";
 
-const SideModal = ({ setShowSideModal, className }) => {
+const SideModal = ({ setShowSideModal, loadingUser, }) => {
   const user = useSelector(selectUser);
   console.log(user);
+
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("User signed out");
+        setShowSideModal(false);
+      })
+      .catch(error => {
+        alert(error.code, error.message);
+        console.log(error);
+      });
+  };
+
   return (
-    <div className="bg-black/90 text-white h-full w-3/4 absolute top-0 right-0 flex items-center justify-center">
-      <div className="p-4 w-full h-full flex flex-col items-start">
-        <button className="mb-2" onClick={() => setShowSideModal(false)}>
-          X
+    <div className="z-10 bg-black/90 text-white h-full w-3/4 top-0 right-0 absolute lg:w-1/6 lg:right-2/5">
+      <div className="p-4 w-full h-full flex flex-col items-start ">
+        <button className="mb-2 hover:text-yellow-500" onClick={() => setShowSideModal(false)}>
+          <IconClose />
         </button>
-        {user && (
+        {!loadingUser && user && (
           <div className="mb-6 w-full flex flex-col items-start">
             <span className="mb-2 flex justify-center items-center">
-              <img className="w-6 rounded-full mr-2" src={user.photoURL} alt="" />
+              {user.photoURL ? (
+                <img className="w-6 rounded-full mr-2" src={user.photoURL} alt="" />
+              ) : (
+                <IconUser />
+              )}
               {user.email}
             </span>
             <span className="">You have made {user.estimates.length} estimates.</span>
@@ -27,7 +47,14 @@ const SideModal = ({ setShowSideModal, className }) => {
           <button className="btn">Join Discord</button>
           <button className="btn">Follow us in Twitter</button>
         </div> */}
-        <button className="absolute bottom-10 right-10">-></button>
+        {user && (
+          <button
+            onClick={handleLogout}
+            className="absolute bottom-10 right-10 hover:text-yellow-500"
+          >
+            <IconLogout />
+          </button>
+        )}
       </div>
     </div>
   );
